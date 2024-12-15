@@ -7,9 +7,12 @@ public class Main {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         Shape circle = (Shape) context.getBean("circleBean");
-
         circle.draw2dShape();
         circle.draw3dShape();
+
+        Shape square = (Shape) context.getBean("squareBean");
+        square.draw2dShape();
+        square.draw3dShape();
 
     }
 }

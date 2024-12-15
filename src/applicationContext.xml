@@ -7,8 +7,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-
-    <!-- DI via Constructor -->
+    <!-- Define Dependency Beans -->
     <bean id="draw2dBean"
           class="Draw2d">
     </bean>
@@ -17,13 +16,18 @@
           class="Draw3d">
     </bean>
 
+
+    <!-- DI via Constructor -->
     <bean id="circleBean" class="CircleShape">
         <constructor-arg ref="draw2dBean"/>
         <constructor-arg ref="draw3dBean"/>
     </bean>
 
 
-    <!-- DI via Setter -->
-    
+    <!-- DI via Setter-->
+    <bean id="squareBean" class="SquareShape">
+        <property name="draw2d" ref="draw2dBean"/>
+        <property name="draw3d" ref="draw3dBean"/>
+    </bean>
 
 </beans>
